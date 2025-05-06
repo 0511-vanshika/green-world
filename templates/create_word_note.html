@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREEN WORLD - Create Note</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="GREEN WORLD Logo" class="logo-centered">
+        </div>
+    </div>
+    <div class="container">
+        <h1>Create New Note</h1>
+        <div id="note-title">
+            <label for="note-title-input">Note Title:</label>
+            <input type="text" id="note-title-input" name="note-title-input">
+        </div>
+        <div id="note-editor">
+            <textarea id="note-content" rows="15" cols="80"></textarea>
+        </div>
+        <button id="save-note-btn">Save Note</button>
+        <div id="message"></div>
+        <div class="links">
+            <p><a href="{{ url_for('choose_planting_type') }}">Back to Planting Type Choice</a></p>
+            <p><a href="{{ url_for('plant_search') }}">Search by Name</a></p>
+            <p><a href="{{ url_for('my_notes') }}">My Saved Notes</a></p>
+            <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const saveNoteBtn = document.getElementById('save-note-btn');
+            const noteContent = document.getElementById('note-content');
+            const noteTitleInput = document.getElementById('note-title-input');
+            const messageDiv = document.getElementById('message');
+
+            saveNoteBtn.addEventListener('click', function() {
+                const noteText = noteContent.value;
+                const noteTitle = noteTitleInput.value;
+
+                fetch('/save_word_note', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ note: noteText, title: noteTitle }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        messageDiv.textContent = 'Note saved successfully!';
+                        noteContent.value = ''; // Clear the editor after saving
+                        noteTitleInput.value = ''; // Clear the title
+                    } else {
+                        messageDiv.textContent = 'Error saving note: ' + data.error;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREEN WORLD - My Saved Notes</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="GREEN WORLD Logo" class="logo-centered">
+        </div>
+    </div>
+    <div class="container">
+        <h1>My Saved Notes</h1>
+        {% if notes %}
+            <ul>
+            {% for note in notes %}
+                <li>
+                    <h3>{{ note.title }}</h3>
+                    <pre>{{ note.content }}</pre>
+                    <p class="note-info">Saved on: {{ note.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                    <hr>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't saved any notes yet.</p>
+        {% endif %}
+        <div class="links">
+            <p><a href="{{ url_for('create_word_note') }}">Create New Note</a></p>
+            <p><a href="{{ url_for('choose_planting_type') }}">Back to Planting Type Choice</a></p>
+            <p><a href="{{ url_for('plant_search') }}">Search by Name</a></p>
+            <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        </div>
+    </div>
+</body>
+</html>

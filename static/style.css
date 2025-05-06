@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0fff0; /* Fallback color */
+    background-image: url('/static/images/leaves_background.jpeg'); /* Changed extension to .jpeg */
+    background-repeat: no-repeat; /* Prevent tiling */
+    background-position: bottom center; /* Position at the bottom, horizontally centered */
+    background-size: contain; /* Ensure the whole image is visible */
+}
+.login-container, .register-container {
+    background-color: white;
+    padding: 15px; /* Reduced vertical padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 70%; /* Further shorten the width */
+    max-width: 280px; /* Further reduce max width */
+    margin: 20px auto; /* Adjust vertical margin */
+}
+
+.logo-container {
+    text-align: center;
+    padding: 10px 0; /* Adjust padding around logo */
+}
+
+.logo-centered {
+    max-width: 250px; /* This sets the maximum width of the logo to 250 pixels */
+    height: auto;       /* This ensures the height scales proportionally */
+    margin: 0 auto;     /* This centers the logo horizontally within its container */
+    display: block;     /* This makes it behave as a block-level element */
+}
+
+.header {
+    background-color: #f0fff0; /* Light green header background */
+    padding: 15px; /* Reduced padding */
+    text-align: center;
+    min-height: auto; /* Adjust min-height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Remove leaf decorations */
+.leaf-left, .leaf-right {
+    display: none;
+}
+
+/* Remove logo text and tagline */
+.logo-text, .tagline {
+    display: none;
+}
+
+.container {
+    background-color: white;
+    padding: 20px; /* Reduced padding */
+    margin: 15px auto; /* Reduced margin */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 75%; /* Adjust width */
+    max-width: 700px; /* Reduce max width */
+}
+
+.plant-input-container,
+.recommendations-container, .search-container, .results-container {
+    background-color: white;
+    padding: 20px; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 30px auto; /* Reduced margin */
+    text-align: center; /* Override if needed */
+    width: 75%; /* Adjust width */
+    max-width: 400px; /* Reduce max width */
+}
+
+.search-container {
+    max-width: 350px; /* Adjust search container width */
+}
+
+label {
+    display: block;
+    margin-bottom: 2px; /* Further reduced margin */
+    font-weight: bold;
+    color: #38761d;
+    font-size: 0.85em; /* Further smaller font */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 10px); /* Adjusted width */
+    padding: 6px; /* Further reduced padding */
+    margin-bottom: 8px; /* Further reduced margin */
+    border: 1px solid #8fbc8f;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.85em; /* Further smaller font */
+}
+
+input[type="submit"],
+button {
+    background-color: #38761d;
+    color: white;
+    padding: 6px 10px; /* Further reduced padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em; /* Further smaller font */
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: #2e8b57;
+}
+
+.error {
+    color: red;
+    margin-top: 3px; /* Further reduced margin */
+    font-size: 0.85em; /* Further smaller font */
+}
+
+a {
+    color: #2e8b57;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 15px; /* Reduced margin */
+    padding: 10px; /* Reduced padding */
+    border: 1px solid #d3d3d3;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+}
+
+h1, h2 {
+    color: #38761d;
+    font-size: 1.5em; /* Slightly smaller headings */
+    margin-top: 15px; /* Reduced top margin */
+    margin-bottom: 10px; /* Reduced bottom margin */
+}

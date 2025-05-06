@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREEN WORLD - Choose Planting Type</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="choose-planting-page">
+    <div class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="GREEN WORLD Logo" class="logo-centered">
+        </div>
+    </div>
+    <div class="container planting-options">
+        <h1>Choose Planting Type</h1>
+        <ul>
+            <li><a href="{{ url_for('show_plants', planting_type='indoor') }}">Indoor Plants</a></li>
+            <li><a href="{{ url_for('show_plants', planting_type='outdoor') }}">Outdoor Plants</a></li>
+            <li><a href="/">Logout</a></li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREEN WORLD - Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-register-page">
+    <div class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="GREEN WORLD Logo" class="logo-centered">
+        </div>
+    </div>
+    <div class="container register-container login-register-content">
+        <h1>Sign Up for GREEN WORLD</h1>
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST" action="/register">
+            <label for="new_username">Username:</label>
+            <input type="text" id="new_username" name="new_username" required><br><br>
+            <label for="new_password">Password:</label>
+            <input type="password" id="new_password" name="new_password" required><br><br>
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+            <input type="submit" value="Sign Up">
+        </form>
+        <p>Already have an account? <a href="/">Log In</a></p>
+    </div>
+</body>
+</html>

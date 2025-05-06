@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GREEN WORLD - {{ plant['Plant Name'] }} Details</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="has-small-logo">
+    <div class="header">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="GREEN WORLD Logo" class="logo-centered">
+        </div>
+    </div>
+    <div class="container">
+        <div class="plant-details-container">
+            <h1>{{ plant['Plant Name'] }}</h1>
+            {% if plant %}
+            {% for key, value in plant.items() %}
+            <p><strong>{{ key.replace('_', ' ').title() }}:</strong> {{ value }}</p>
+            {% endfor %}
+            <p><a href="{{ url_for('show_plants', planting_type=plant['Planting Type']|lower) }}">Back to {{ plant['Planting Type'] }} Plants</a> | <a href="{{ url_for('choose_planting_type') }}">Back to Planting Type Choice</a> | <a href="{{ url_for('plant_search') }}">Search by Name</a> | <a href="/">Logout</a></p>
+            <p><a href="{{ url_for('create_note', plant_name=plant['Plant Name']|replace(' ', '_')) }}">Create Note</a></p>
+            {% else %}
+            <p>Plant details not found.</p>
+            <p><a href="{{ url_for('choose_planting_type') }}">Back to Planting Type Choice</a> | <a href="{{ url_for('plant_search') }}">Search by Name</a> | <a href="/">Logout</a></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
